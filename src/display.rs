@@ -168,6 +168,7 @@ fn parse_type(fmt: &mut fmt::Formatter, ch: char, tm: &Tm) -> fmt::Result {
         'd' => write!(fmt, "{:02}", tm.tm_mday),
         'e' => write!(fmt, "{:2}", tm.tm_mday),
         'f' => write!(fmt, "{:09}", tm.tm_nsec),
+        'L' => write!(fmt, "{:03}", tm.tm_nsec / 1000000),
         'F' => {
             try!(parse_type(fmt, 'Y', tm));
             try!(write!(fmt, "-"));

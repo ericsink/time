@@ -623,7 +623,8 @@ fn validate_format<'a>(fmt: TmFmt<'a>) -> Result<TmFmt<'a>, ParseError> {
                             Some('T') | Some('t') | Some('U') | Some('u') |
                             Some('V') | Some('v') | Some('W') | Some('w') |
                             Some('X') | Some('x') | Some('Y') | Some('y') |
-                            Some('Z') | Some('z') | Some('+') | Some('%') => (),
+                            Some('Z') | Some('z') | Some('+') | Some('%') |
+                            Some('L') => (),
 
                             Some(c) => return Err(InvalidFormatSpecifier(c)),
                             None => return Err(MissingFormatConverter),
